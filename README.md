@@ -35,16 +35,18 @@ Visit the live app: [Recipe Converter](https://raehan15.github.io/recipe-convert
 ## 🏗️ Local Development
 
 1. Clone the repository:
+
    ```bash
    git clone https://github.com/raehan15/recipe-converter.git
    cd recipe-converter
    ```
 
 2. Open `index.html` in your browser or serve with a local server:
+
    ```bash
    # Using Python 3
    python -m http.server 8000
-   
+
    # Using Node.js (if you have http-server installed)
    npx http-server
    ```
