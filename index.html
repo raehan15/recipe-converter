@@ -1,0 +1,815 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Title and Meta Description -->
+    <title>Recipe Converter | Instant Recipe Ingredient Scaler</title>
+    <meta
+      name="description"
+      content="Effortlessly scale any recipe up or down. Our free online calculator adjusts ingredient quantities for your desired serving size in seconds. Perfect for home cooks!"
+    />
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://recipesconvert.com/" />
+
+    <!-- Open Graph Tags -->
+    <meta
+      property="og:title"
+      content="RecipesConvert.com | Instant Recipe Ingredient Scaler"
+    />
+    <meta
+      property="og:description"
+      content="Effortlessly scale any recipe up or down. Our free online calculator adjusts ingredient quantities for your desired serving size in seconds. Perfect for home cooks!"
+    />
+    <meta property="og:type" content="website" />
+    <meta
+      property="og:image"
+      content="https://placehold.co/1200x630/4A90E2/FFFFFF?text=RecipesConvert"
+    />
+    <meta property="og:url" content="https://recipesconvert.com/" />
+
+    <!-- Twitter Card Tags -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta
+      name="twitter:title"
+      content="RecipesConvert.com | Instant Recipe Ingredient Scaler"
+    />
+    <meta
+      name="twitter:description"
+      content="Effortlessly scale any recipe up or down. Our free online calculator adjusts ingredient quantities for your desired serving size in seconds. Perfect for home cooks!"
+    />
+    <meta
+      name="twitter:image"
+      content="https://placehold.co/1200x630/4A90E2/FFFFFF?text=RecipesConvert"
+    />
+
+    <!-- Schema.org Structured Data -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "RecipesConvert.com",
+        "description": "A free online tool to scale recipe ingredients up or down for any serving size.",
+        "applicationCategory": "LifestyleApplication",
+        "operatingSystem": "Any",
+        "offers": {
+          "@type": "Offer",
+          "price": "0"
+        },
+        "mainEntity": {
+          "@type": "HowToTool",
+          "name": "Recipe Ingredient Scaler",
+          "description": "A tool to adjust recipe ingredient quantities based on serving size."
+        }
+      }
+    </script>
+
+    <!-- Favicon -->
+    <link
+      rel="icon"
+      href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🍳</text></svg>"
+    />
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              inter: ["Inter", "sans-serif"],
+            },
+            colors: {
+              primary: "#4A90E2",
+              "primary-dark": "#3A7BC8",
+              "gray-50": "#F8F9FA",
+              "gray-900": "#212529",
+            },
+          },
+        },
+      };
+    </script>
+
+    <style>
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(10px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @keyframes pulse {
+        0%,
+        100% {
+          transform: scale(1);
+        }
+        50% {
+          transform: scale(1.05);
+        }
+      }
+
+      .fade-in {
+        animation: fadeIn 0.5s ease-out;
+      }
+
+      .button-pulse:hover {
+        animation: pulse 0.3s ease-in-out;
+      }
+
+      .focus-ring:focus {
+        outline: none;
+        box-shadow: 0 0 0 3px rgba(74, 144, 226, 0.3);
+      }
+
+      .glass-effect {
+        background: rgba(255, 255, 255, 0.95);
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+      }
+    </style>
+  </head>
+
+  <body class="font-inter bg-gray-50 min-h-screen">
+    <!-- Background Pattern -->
+    <div
+      class="absolute inset-0 bg-gradient-to-br from-blue-50 via-white to-indigo-50 opacity-60"
+    ></div>
+
+    <!-- Main Container -->
+    <div class="relative min-h-screen flex flex-col">
+      <!-- Header -->
+      <header class="bg-white shadow-sm border-b border-gray-200">
+        <div class="max-w-6xl mx-auto px-4 py-4">
+          <nav class="flex items-center justify-between">
+            <a
+              href="index.html"
+              class="text-2xl font-bold text-gray-900 hover:text-primary transition-colors duration-200"
+            >
+              🍳
+              <span
+                class="bg-gradient-to-r from-primary to-purple-600 bg-clip-text text-transparent"
+                >Recipe Converter</span
+              >
+            </a>
+            <div class="hidden md:flex space-x-6">
+              <a href="index.html" class="text-primary font-medium">Home</a>
+              <a
+                href="about.html"
+                class="text-gray-600 hover:text-primary transition-colors duration-200"
+                >About</a
+              >
+              <a
+                href="contact.html"
+                class="text-gray-600 hover:text-primary transition-colors duration-200"
+                >Contact</a
+              >
+              <a
+                href="privacy.html"
+                class="text-gray-600 hover:text-primary transition-colors duration-200"
+                >Privacy</a
+              >
+            </div>
+            <!-- Mobile menu button -->
+            <button
+              id="mobileMenuBtn"
+              class="md:hidden p-2 rounded-lg text-gray-600 hover:text-primary hover:bg-gray-100 transition-colors duration-200"
+            >
+              <svg
+                class="w-6 h-6"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M4 6h16M4 12h16M4 18h16"
+                ></path>
+              </svg>
+            </button>
+          </nav>
+          <!-- Mobile menu -->
+          <div
+            id="mobileMenu"
+            class="hidden md:hidden mt-4 pb-4 border-t border-gray-200"
+          >
+            <div class="flex flex-col space-y-2 mt-4">
+              <a href="index.html" class="text-primary font-medium py-2"
+                >Home</a
+              >
+              <a
+                href="about.html"
+                class="text-gray-600 hover:text-primary transition-colors duration-200 py-2"
+                >About</a
+              >
+              <a
+                href="contact.html"
+                class="text-gray-600 hover:text-primary transition-colors duration-200 py-2"
+                >Contact</a
+              >
+              <a
+                href="privacy.html"
+                class="text-gray-600 hover:text-primary transition-colors duration-200 py-2"
+                >Privacy</a
+              >
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <!-- Main Header Section -->
+      <section class="pt-8 pb-4 px-4 text-center">
+        <div class="max-w-4xl mx-auto">
+          <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+            🍳
+            <span
+              class="bg-gradient-to-r from-primary to-purple-600 bg-clip-text text-transparent"
+              >Recipe Converter</span
+            >
+          </h1>
+          <p class="text-lg md:text-xl text-gray-600 max-w-2xl mx-auto">
+            Effortlessly scale any recipe up or down for your desired serving
+            size
+          </p>
+        </div>
+      </section>
+
+      <!-- Main Content -->
+      <main class="flex-1 px-4 pb-8">
+        <div class="max-w-4xl mx-auto">
+          <div class="grid gap-8 lg:grid-cols-2">
+            <!-- Input Section -->
+            <div class="space-y-6">
+              <!-- Recipe Input -->
+              <div class="glass-effect rounded-xl p-6 shadow-lg">
+                <label
+                  for="recipeInput"
+                  class="block text-lg font-semibold text-gray-900 mb-3"
+                >
+                  📝 Recipe Ingredients
+                </label>
+                <textarea
+                  id="recipeInput"
+                  class="w-full h-64 p-4 border-2 border-gray-200 rounded-lg focus-ring resize-none transition-all duration-200"
+                  placeholder="Paste your recipe ingredients here... &#10;&#10;Example:&#10;2 cups flour&#10;1.5 tsp salt&#10;1/2 cup sugar&#10;3-4 eggs"
+                  aria-label="Recipe ingredients input"
+                ></textarea>
+              </div>
+
+              <!-- Serving Size Inputs -->
+              <div class="glass-effect rounded-xl p-6 shadow-lg">
+                <h3 class="text-lg font-semibold text-gray-900 mb-4">
+                  🔢 Serving Sizes
+                </h3>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <div>
+                    <label
+                      for="originalServings"
+                      class="block text-sm font-medium text-gray-700 mb-2"
+                    >
+                      Original Servings
+                    </label>
+                    <input
+                      type="number"
+                      id="originalServings"
+                      min="1"
+                      step="0.1"
+                      class="w-full p-3 border-2 border-gray-200 rounded-lg focus-ring transition-all duration-200"
+                      placeholder="e.g., 4"
+                      aria-label="Original number of servings"
+                    />
+                  </div>
+                  <div>
+                    <label
+                      for="newServings"
+                      class="block text-sm font-medium text-gray-700 mb-2"
+                    >
+                      New Servings
+                    </label>
+                    <input
+                      type="number"
+                      id="newServings"
+                      min="0.1"
+                      step="0.1"
+                      class="w-full p-3 border-2 border-gray-200 rounded-lg focus-ring transition-all duration-200"
+                      placeholder="e.g., 8"
+                      aria-label="Desired number of servings"
+                    />
+                  </div>
+                </div>
+              </div>
+
+              <!-- Action Buttons -->
+              <div class="flex flex-wrap gap-3">
+                <button
+                  id="scaleBtn"
+                  class="flex-1 bg-primary hover:bg-primary-dark text-white font-semibold py-4 px-6 rounded-lg shadow-lg button-pulse transition-all duration-200 transform hover:scale-105 focus-ring"
+                  aria-label="Scale the recipe ingredients"
+                >
+                  ⚡ Scale Recipe
+                </button>
+                <button
+                  id="resetBtn"
+                  class="bg-gray-500 hover:bg-gray-600 text-white font-medium py-4 px-6 rounded-lg shadow-lg transition-all duration-200 focus-ring"
+                  aria-label="Reset all inputs and results"
+                >
+                  🔄 Reset
+                </button>
+              </div>
+            </div>
+
+            <!-- Output Section -->
+            <div class="space-y-6">
+              <!-- Results -->
+              <div
+                id="resultsContainer"
+                class="glass-effect rounded-xl p-6 shadow-lg hidden"
+              >
+                <div class="flex items-center justify-between mb-4">
+                  <h3 class="text-lg font-semibold text-gray-900">
+                    ✨ Scaled Recipe
+                  </h3>
+                  <button
+                    id="copyBtn"
+                    class="bg-green-500 hover:bg-green-600 text-white font-medium py-2 px-4 rounded-lg shadow transition-all duration-200 focus-ring"
+                    aria-label="Copy scaled recipe to clipboard"
+                  >
+                    📋 Copy
+                  </button>
+                </div>
+                <div
+                  id="scaledRecipe"
+                  class="bg-gray-50 border-2 border-gray-200 rounded-lg p-4 font-mono text-sm whitespace-pre-wrap min-h-64 max-h-96 overflow-y-auto"
+                  aria-live="polite"
+                ></div>
+                <div id="scalingInfo" class="mt-4 text-sm text-gray-600"></div>
+              </div>
+
+              <!-- Instructions -->
+              <div class="glass-effect rounded-xl p-6 shadow-lg">
+                <h3 class="text-lg font-semibold text-gray-900 mb-4">
+                  📖 How to Use
+                </h3>
+                <ol class="space-y-2 text-gray-700">
+                  <li class="flex items-start">
+                    <span
+                      class="bg-primary text-white rounded-full w-6 h-6 flex items-center justify-center text-sm font-bold mr-3 mt-0.5 flex-shrink-0"
+                      >1</span
+                    >
+                    <span
+                      >Paste your recipe ingredients in the text area
+                      above</span
+                    >
+                  </li>
+                  <li class="flex items-start">
+                    <span
+                      class="bg-primary text-white rounded-full w-6 h-6 flex items-center justify-center text-sm font-bold mr-3 mt-0.5 flex-shrink-0"
+                      >2</span
+                    >
+                    <span>Enter the original and desired serving sizes</span>
+                  </li>
+                  <li class="flex items-start">
+                    <span
+                      class="bg-primary text-white rounded-full w-6 h-6 flex items-center justify-center text-sm font-bold mr-3 mt-0.5 flex-shrink-0"
+                      >3</span
+                    >
+                    <span
+                      >Click "Scale Recipe" to get your adjusted
+                      ingredients</span
+                    >
+                  </li>
+                  <li class="flex items-start">
+                    <span
+                      class="bg-primary text-white rounded-full w-6 h-6 flex items-center justify-center text-sm font-bold mr-3 mt-0.5 flex-shrink-0"
+                      >4</span
+                    >
+                    <span>Copy the results and start cooking!</span>
+                  </li>
+                </ol>
+              </div>
+
+              <!-- Features -->
+              <div class="glass-effect rounded-xl p-6 shadow-lg">
+                <h3 class="text-lg font-semibold text-gray-900 mb-4">
+                  🌟 Features
+                </h3>
+                <ul class="space-y-2 text-gray-700">
+                  <li class="flex items-center">
+                    <span class="text-green-500 mr-2">✓</span>
+                    <span>Handles whole numbers, decimals, and fractions</span>
+                  </li>
+                  <li class="flex items-center">
+                    <span class="text-green-500 mr-2">✓</span>
+                    <span>Scales ingredient ranges (e.g., "2-3 eggs")</span>
+                  </li>
+                  <li class="flex items-center">
+                    <span class="text-green-500 mr-2">✓</span>
+                    <span>Converts decimals back to common fractions</span>
+                  </li>
+                  <li class="flex items-center">
+                    <span class="text-green-500 mr-2">✓</span>
+                    <span>One-click copy to clipboard</span>
+                  </li>
+                  <li class="flex items-center">
+                    <span class="text-green-500 mr-2">✓</span>
+                    <span>Mobile-friendly responsive design</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+
+      <!-- Footer -->
+      <footer class="bg-white border-t border-gray-200 mt-12">
+        <div class="max-w-6xl mx-auto px-4 py-8">
+          <div class="text-center">
+            <div class="flex flex-wrap justify-center gap-6 mb-6">
+              <a
+                href="about.html"
+                class="text-gray-600 hover:text-primary transition-colors duration-200"
+                >About Us</a
+              >
+              <a
+                href="contact.html"
+                class="text-gray-600 hover:text-primary transition-colors duration-200"
+                >Contact Us</a
+              >
+              <a
+                href="privacy.html"
+                class="text-gray-600 hover:text-primary transition-colors duration-200"
+                >Privacy Policy</a
+              >
+            </div>
+            <p class="text-gray-600">
+              &copy; 2025 RecipesConvert.com. Free recipe scaling tool for home
+              cooks.
+            </p>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <!-- JavaScript -->
+    <script>
+      class RecipeScaler {
+        constructor() {
+          this.initializeElements();
+          this.bindEvents();
+        }
+
+        initializeElements() {
+          this.recipeInput = document.getElementById("recipeInput");
+          this.originalServings = document.getElementById("originalServings");
+          this.newServings = document.getElementById("newServings");
+          this.scaleBtn = document.getElementById("scaleBtn");
+          this.resetBtn = document.getElementById("resetBtn");
+          this.copyBtn = document.getElementById("copyBtn");
+          this.resultsContainer = document.getElementById("resultsContainer");
+          this.scaledRecipe = document.getElementById("scaledRecipe");
+          this.scalingInfo = document.getElementById("scalingInfo");
+        }
+
+        bindEvents() {
+          this.scaleBtn.addEventListener("click", () => this.scaleRecipe());
+          this.resetBtn.addEventListener("click", () => this.resetForm());
+          this.copyBtn.addEventListener("click", () => this.copyToClipboard());
+
+          // Allow Enter key to trigger scaling
+          [this.recipeInput, this.originalServings, this.newServings].forEach(
+            (element) => {
+              element.addEventListener("keypress", (e) => {
+                if (e.key === "Enter" && !e.shiftKey) {
+                  e.preventDefault();
+                  this.scaleRecipe();
+                }
+              });
+            }
+          );
+        }
+
+        scaleRecipe() {
+          const recipe = this.recipeInput.value.trim();
+          const originalServ = parseFloat(this.originalServings.value);
+          const newServ = parseFloat(this.newServings.value);
+
+          if (!recipe) {
+            this.showError("Please enter recipe ingredients.");
+            return;
+          }
+
+          if (!originalServ || originalServ <= 0) {
+            this.showError("Please enter a valid original serving size.");
+            return;
+          }
+
+          if (!newServ || newServ <= 0) {
+            this.showError("Please enter a valid new serving size.");
+            return;
+          }
+
+          const scaleFactor = newServ / originalServ;
+          const scaledRecipe = this.processRecipe(recipe, scaleFactor);
+
+          this.displayResults(scaledRecipe, originalServ, newServ, scaleFactor);
+        }
+
+        processRecipe(recipe, scaleFactor) {
+          const lines = recipe.split("\n");
+          const scaledLines = lines.map((line) =>
+            this.scaleLine(line, scaleFactor)
+          );
+          return scaledLines.join("\n");
+        }
+
+        scaleLine(line, scaleFactor) {
+          if (!line.trim()) return line;
+
+          // First, convert Unicode fractions to standard format
+          line = this.convertUnicodeFractions(line);
+
+          // Use a single comprehensive pattern that prioritizes mixed numbers
+          // This pattern matches numbers in the correct order:
+          // 1. Mixed numbers with ranges: "1 1/2 - 2 3/4"
+          // 2. Mixed numbers: "1 1/2"
+          // 3. Fraction ranges: "1/2 - 3/4"
+          // 4. Fractions: "1/2"
+          // 5. Decimal ranges: "1.5 - 2.0"
+          // 6. Decimals: "1.5"
+          // 7. Whole number ranges: "2-3"
+          // 8. Whole numbers: "2"
+          const numberPattern =
+            /(\d+\s+\d+\/\d+(?:\s*[-–—]\s*\d+\s+\d+\/\d+)?|\d+\s+\d+\/\d+|\d+\/\d+(?:\s*[-–—]\s*\d+\/\d+)?|\d+\/\d+|\d+\.\d+(?:\s*[-–—]\s*\d+\.\d+)?|\d+\.\d+|\d+(?:\s*[-–—]\s*\d+)?)/g;
+
+          return line.replace(numberPattern, (match) => {
+            return this.scaleNumber(match, scaleFactor);
+          });
+        }
+
+        convertUnicodeFractions(text) {
+          // Map of Unicode fractions to standard format
+          const unicodeFractions = {
+            "½": "1/2",
+            "⅓": "1/3",
+            "⅔": "2/3",
+            "¼": "1/4",
+            "¾": "3/4",
+            "⅕": "1/5",
+            "⅖": "2/5",
+            "⅗": "3/5",
+            "⅘": "4/5",
+            "⅙": "1/6",
+            "⅚": "5/6",
+            "⅐": "1/7",
+            "⅛": "1/8",
+            "⅜": "3/8",
+            "⅝": "5/8",
+            "⅞": "7/8",
+            "⅑": "1/9",
+            "⅒": "1/10",
+          };
+
+          // First, handle mixed numbers with Unicode fractions (e.g., "1½" → "1 1/2")
+          // This regex matches a digit followed immediately by a Unicode fraction
+          for (const [unicode, standard] of Object.entries(unicodeFractions)) {
+            const mixedPattern = new RegExp(`(\\d+)${unicode}`, "g");
+            text = text.replace(mixedPattern, `$1 ${standard}`);
+          }
+
+          // Then replace any remaining standalone Unicode fractions
+          for (const [unicode, standard] of Object.entries(unicodeFractions)) {
+            text = text.replace(new RegExp(unicode, "g"), standard);
+          }
+
+          return text;
+        }
+
+        scaleNumber(numberStr, scaleFactor) {
+          const trimmed = numberStr.trim();
+
+          // Handle ranges (e.g., "2-3", "1.5-2", "1/2 - 3/4")
+          // Support different types of dashes: hyphen (-), en dash (–), em dash (—)
+          if (trimmed.match(/[-–—]/)) {
+            const parts = trimmed.split(/\s*[-–—]\s*/);
+            if (parts.length === 2) {
+              const scaledStart = this.scaleValue(parts[0].trim(), scaleFactor);
+              const scaledEnd = this.scaleValue(parts[1].trim(), scaleFactor);
+              return `${scaledStart}-${scaledEnd}`;
+            }
+          }
+
+          return this.scaleValue(trimmed, scaleFactor);
+        }
+
+        scaleValue(valueStr, scaleFactor) {
+          let value;
+          valueStr = valueStr.trim();
+
+          // Handle mixed numbers (e.g., "1 1/2", "2 3/4")
+          const mixedNumberMatch = valueStr.match(/^(\d+)\s+(\d+)\/(\d+)$/);
+          if (mixedNumberMatch) {
+            const whole = parseFloat(mixedNumberMatch[1]);
+            const numerator = parseFloat(mixedNumberMatch[2]);
+            const denominator = parseFloat(mixedNumberMatch[3]);
+            if (
+              !isNaN(whole) &&
+              !isNaN(numerator) &&
+              !isNaN(denominator) &&
+              denominator !== 0
+            ) {
+              value = whole + numerator / denominator;
+            } else {
+              return valueStr;
+            }
+          }
+          // Handle fractions (e.g., "1/2", "3/4")
+          else if (valueStr.includes("/")) {
+            const parts = valueStr.split("/");
+            if (parts.length === 2) {
+              const numerator = parseFloat(parts[0].trim());
+              const denominator = parseFloat(parts[1].trim());
+              if (
+                !isNaN(numerator) &&
+                !isNaN(denominator) &&
+                denominator !== 0
+              ) {
+                value = numerator / denominator;
+              } else {
+                return valueStr; // Return original if invalid fraction
+              }
+            } else {
+              return valueStr;
+            }
+          }
+          // Handle decimal numbers (e.g., "1.5", "2.25")
+          else if (valueStr.includes(".")) {
+            value = parseFloat(valueStr);
+            if (isNaN(value)) {
+              return valueStr;
+            }
+          }
+          // Handle whole numbers (e.g., "1", "2", "10")
+          else {
+            value = parseFloat(valueStr);
+            if (isNaN(value)) {
+              return valueStr; // Return original if not a number
+            }
+          }
+
+          const scaledValue = value * scaleFactor;
+          return this.formatNumber(scaledValue);
+        }
+
+        formatNumber(num) {
+          // Round to reasonable precision
+          const rounded = Math.round(num * 1000) / 1000;
+
+          // Convert to common fractions if close enough
+          const fractions = [
+            [0.125, "1/8"],
+            [0.25, "1/4"],
+            [0.333, "1/3"],
+            [0.375, "3/8"],
+            [0.5, "1/2"],
+            [0.625, "5/8"],
+            [0.667, "2/3"],
+            [0.75, "3/4"],
+            [0.875, "7/8"],
+          ];
+
+          const wholePart = Math.floor(rounded);
+          const fractionalPart = rounded - wholePart;
+
+          // Check if fractional part matches a common fraction
+          for (const [decimal, fraction] of fractions) {
+            if (Math.abs(fractionalPart - decimal) < 0.02) {
+              return wholePart > 0 ? `${wholePart} ${fraction}` : fraction;
+            }
+          }
+
+          // If no close fraction match, return decimal
+          if (rounded % 1 === 0) {
+            return rounded.toString();
+          } else {
+            return rounded.toFixed(2).replace(/\.?0+$/, "");
+          }
+        }
+
+        displayResults(scaledRecipe, originalServ, newServ, scaleFactor) {
+          this.scaledRecipe.textContent = scaledRecipe;
+          this.scalingInfo.textContent = `Scaled from ${originalServ} to ${newServ} servings (${scaleFactor.toFixed(
+            2
+          )}x)`;
+
+          this.resultsContainer.classList.remove("hidden");
+          this.resultsContainer.classList.add("fade-in");
+
+          // Smooth scroll to results on mobile
+          if (window.innerWidth < 1024) {
+            this.resultsContainer.scrollIntoView({ behavior: "smooth" });
+          }
+        }
+
+        copyToClipboard() {
+          const text = this.scaledRecipe.textContent;
+
+          if (navigator.clipboard && window.isSecureContext) {
+            navigator.clipboard
+              .writeText(text)
+              .then(() => {
+                this.showCopySuccess();
+              })
+              .catch(() => {
+                this.fallbackCopy(text);
+              });
+          } else {
+            this.fallbackCopy(text);
+          }
+        }
+
+        fallbackCopy(text) {
+          const textArea = document.createElement("textarea");
+          textArea.value = text;
+          textArea.style.position = "fixed";
+          textArea.style.left = "-999999px";
+          textArea.style.top = "-999999px";
+          document.body.appendChild(textArea);
+          textArea.focus();
+          textArea.select();
+
+          try {
+            document.execCommand("copy");
+            this.showCopySuccess();
+          } catch (err) {
+            this.showError("Unable to copy to clipboard");
+          }
+
+          document.body.removeChild(textArea);
+        }
+
+        showCopySuccess() {
+          const originalText = this.copyBtn.textContent;
+          this.copyBtn.textContent = "✅ Copied!";
+          this.copyBtn.classList.add("bg-green-600");
+
+          setTimeout(() => {
+            this.copyBtn.textContent = originalText;
+            this.copyBtn.classList.remove("bg-green-600");
+          }, 2000);
+        }
+
+        showError(message) {
+          // Create temporary error message
+          const errorDiv = document.createElement("div");
+          errorDiv.className =
+            "fixed top-4 right-4 bg-red-500 text-white px-4 py-2 rounded-lg shadow-lg z-50 fade-in";
+          errorDiv.textContent = message;
+
+          document.body.appendChild(errorDiv);
+
+          setTimeout(() => {
+            errorDiv.remove();
+          }, 3000);
+        }
+
+        resetForm() {
+          this.recipeInput.value = "";
+          this.originalServings.value = "";
+          this.newServings.value = "";
+          this.resultsContainer.classList.add("hidden");
+          this.scaledRecipe.textContent = "";
+          this.scalingInfo.textContent = "";
+        }
+      }
+
+      // Initialize the application when DOM is loaded
+      document.addEventListener("DOMContentLoaded", () => {
+        new RecipeScaler();
+
+        // Mobile menu functionality
+        document
+          .getElementById("mobileMenuBtn")
+          .addEventListener("click", function () {
+            const mobileMenu = document.getElementById("mobileMenu");
+            mobileMenu.classList.toggle("hidden");
+          });
+      });
+    </script>
+  </body>
+</html>

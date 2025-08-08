@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Title and Meta Description -->
+    <title>Contact Us | RecipesConvert.com - Get in Touch</title>
+    <meta
+      name="description"
+      content="Have questions or feedback about RecipesConvert.com? We'd love to hear from you! Contact us for support, suggestions, or just to share your cooking stories."
+    />
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://recipesconvert.com/contact.html" />
+
+    <!-- Open Graph Tags -->
+    <meta
+      property="og:title"
+      content="Contact Us | RecipesConvert.com - Get in Touch"
+    />
+    <meta
+      property="og:description"
+      content="Have questions or feedback about RecipesConvert.com? We'd love to hear from you! Contact us for support, suggestions, or just to share your cooking stories."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://recipesconvert.com/contact.html" />
+
+    <!-- Favicon -->
+    <link
+      rel="icon"
+      href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🍳</text></svg>"
+    />
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              inter: ["Inter", "sans-serif"],
+            },
+            colors: {
+              primary: "#4A90E2",
+              "primary-dark": "#3A7BC8",
+              "gray-50": "#F8F9FA",
+              "gray-900": "#212529",
+            },
+          },
+        },
+      };
+    </script>
+
+    <style>
+      .glass-effect {
+        background: rgba(255, 255, 255, 0.95);
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+      }
+    </style>
+  </head>
+
+  <body class="font-inter bg-gray-50 min-h-screen">
+    <!-- Background Pattern -->
+    <div
+      class="absolute inset-0 bg-gradient-to-br from-blue-50 via-white to-indigo-50 opacity-60"
+    ></div>
+
+    <!-- Main Container -->
+    <div class="relative min-h-screen flex flex-col">
+      <!-- Header -->
+      <header class="bg-white shadow-sm border-b border-gray-200">
+        <div class="max-w-6xl mx-auto px-4 py-4">
+          <nav class="flex items-center justify-between">
+            <a
+              href="index.html"
+              class="text-2xl font-bold text-gray-900 hover:text-primary transition-colors duration-200"
+            >
+              🍳
+              <span
+                class="bg-gradient-to-r from-primary to-purple-600 bg-clip-text text-transparent"
+                >RecipesConvert.com</span
+              >
+            </a>
+            <div class="hidden md:flex space-x-6">
+              <a
+                href="index.html"
+                class="text-gray-600 hover:text-primary transition-colors duration-200"
+                >Home</a
+              >
+              <a
+                href="about.html"
+                class="text-gray-600 hover:text-primary transition-colors duration-200"
+                >About</a
+              >
+              <a href="contact.html" class="text-primary font-medium"
+                >Contact</a
+              >
+              <a
+                href="privacy.html"
+                class="text-gray-600 hover:text-primary transition-colors duration-200"
+                >Privacy</a
+              >
+            </div>
+            <!-- Mobile menu button -->
+            <button
+              id="mobileMenuBtn"
+              class="md:hidden p-2 rounded-lg text-gray-600 hover:text-primary hover:bg-gray-100 transition-colors duration-200"
+            >
+              <svg
+                class="w-6 h-6"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M4 6h16M4 12h16M4 18h16"
+                ></path>
+              </svg>
+            </button>
+          </nav>
+          <!-- Mobile menu -->
+          <div
+            id="mobileMenu"
+            class="hidden md:hidden mt-4 pb-4 border-t border-gray-200"
+          >
+            <div class="flex flex-col space-y-2 mt-4">
+              <a
+                href="index.html"
+                class="text-gray-600 hover:text-primary transition-colors duration-200 py-2"
+                >Home</a
+              >
+              <a
+                href="about.html"
+                class="text-gray-600 hover:text-primary transition-colors duration-200 py-2"
+                >About</a
+              >
+              <a href="contact.html" class="text-primary font-medium py-2"
+                >Contact</a
+              >
+              <a
+                href="privacy.html"
+                class="text-gray-600 hover:text-primary transition-colors duration-200 py-2"
+                >Privacy</a
+              >
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <!-- Main Content -->
+      <main class="flex-1 px-4 py-12">
+        <div class="max-w-3xl mx-auto">
+          <div class="glass-effect rounded-xl p-8 md:p-12 shadow-lg">
+            <h1
+              class="text-4xl md:text-5xl font-bold text-gray-900 mb-8 text-center"
+            >
+              Contact Us
+            </h1>
+
+            <div class="prose prose-lg max-w-none text-gray-700 space-y-8">
+              <!-- Introduction -->
+              <div class="text-center">
+                <p class="text-xl leading-relaxed mb-8">
+                  We would love to hear from you! Whether you have a question
+                  about our tool, a suggestion for a new feature, or just want
+                  to share a cooking story, we're here to listen.
+                </p>
+              </div>
+
+              <!-- Contact Method -->
+              <section class="bg-primary/5 rounded-lg p-8 text-center">
+                <h2
+                  class="text-2xl md:text-3xl font-semibold text-gray-900 mb-6 flex items-center justify-center"
+                >
+                  📧 <span class="ml-2">Get in Touch</span>
+                </h2>
+                <p class="text-lg leading-relaxed mb-6">
+                  The best way to reach us is by email. Please send your message
+                  to:
+                </p>
+
+                <!-- Email Address -->
+                <div
+                  class="bg-white rounded-lg p-6 shadow-sm border border-gray-200 inline-block"
+                >
+                  <a
+                    href="mailto:convertrecipe@gmail.com"
+                    class="text-2xl md:text-3xl font-semibold text-primary hover:text-primary-dark transition-colors duration-200 hover:underline"
+                  >
+                    convertrecipe@gmail.com
+                  </a>
+                </div>
+
+                <!-- Response Time -->
+                <p class="text-lg leading-relaxed mt-6 text-gray-600">
+                  We do our best to respond to all inquiries within 24-48 hours.
+                </p>
+              </section>
+
+              <!-- What to Include -->
+              <section>
+                <h2
+                  class="text-2xl md:text-3xl font-semibold text-gray-900 mb-6 flex items-center"
+                >
+                  💡 <span class="ml-2">What to Include</span>
+                </h2>
+                <div class="grid md:grid-cols-2 gap-6">
+                  <div class="bg-blue-50 rounded-lg p-6">
+                    <h3
+                      class="text-lg font-semibold text-gray-900 mb-3 flex items-center"
+                    >
+                      🐛 <span class="ml-2">Bug Reports</span>
+                    </h3>
+                    <ul class="text-gray-700 space-y-2">
+                      <li>• What you were trying to do</li>
+                      <li>• What happened instead</li>
+                      <li>• Your device/browser type</li>
+                    </ul>
+                  </div>
+                  <div class="bg-green-50 rounded-lg p-6">
+                    <h3
+                      class="text-lg font-semibold text-gray-900 mb-3 flex items-center"
+                    >
+                      ✨ <span class="ml-2">Feature Requests</span>
+                    </h3>
+                    <ul class="text-gray-700 space-y-2">
+                      <li>• Describe the feature you'd like</li>
+                      <li>• Explain how it would help you</li>
+                      <li>• Share any specific use cases</li>
+                    </ul>
+                  </div>
+                  <div class="bg-purple-50 rounded-lg p-6">
+                    <h3
+                      class="text-lg font-semibold text-gray-900 mb-3 flex items-center"
+                    >
+                      🍽️ <span class="ml-2">Recipe Stories</span>
+                    </h3>
+                    <ul class="text-gray-700 space-y-2">
+                      <li>• How you used our tool</li>
+                      <li>• What you cooked</li>
+                      <li>• How it turned out</li>
+                    </ul>
+                  </div>
+                  <div class="bg-orange-50 rounded-lg p-6">
+                    <h3
+                      class="text-lg font-semibold text-gray-900 mb-3 flex items-center"
+                    >
+                      ❓ <span class="ml-2">General Questions</span>
+                    </h3>
+                    <ul class="text-gray-700 space-y-2">
+                      <li>• How to use specific features</li>
+                      <li>• Compatibility questions</li>
+                      <li>• General feedback</li>
+                    </ul>
+                  </div>
+                </div>
+              </section>
+
+              <!-- Alternative Ways -->
+              <section class="text-center bg-gray-50 rounded-lg p-8">
+                <h2 class="text-2xl font-semibold text-gray-900 mb-4">
+                  Other Ways to Connect
+                </h2>
+                <p class="text-lg text-gray-600 mb-4">
+                  While email is our preferred method of communication, you can
+                  also:
+                </p>
+                <div class="flex flex-wrap justify-center gap-4">
+                  <span
+                    class="bg-white px-4 py-2 rounded-lg shadow-sm border border-gray-200 text-gray-700"
+                  >
+                    📝 Leave feedback on our homepage
+                  </span>
+                  <span
+                    class="bg-white px-4 py-2 rounded-lg shadow-sm border border-gray-200 text-gray-700"
+                  >
+                    🍳 Share your cooking adventures
+                  </span>
+                  <span
+                    class="bg-white px-4 py-2 rounded-lg shadow-sm border border-gray-200 text-gray-700"
+                  >
+                    💭 Suggest improvements
+                  </span>
+                </div>
+              </section>
+            </div>
+          </div>
+        </div>
+      </main>
+
+      <!-- Footer -->
+      <footer class="bg-white border-t border-gray-200 mt-12">
+        <div class="max-w-6xl mx-auto px-4 py-8">
+          <div class="text-center">
+            <div class="flex flex-wrap justify-center gap-6 mb-6">
+              <a
+                href="about.html"
+                class="text-gray-600 hover:text-primary transition-colors duration-200"
+                >About Us</a
+              >
+              <a
+                href="contact.html"
+                class="text-gray-600 hover:text-primary transition-colors duration-200"
+                >Contact Us</a
+              >
+              <a
+                href="privacy.html"
+                class="text-gray-600 hover:text-primary transition-colors duration-200"
+                >Privacy Policy</a
+              >
+            </div>
+            <p class="text-gray-600">
+              &copy; 2025 RecipesConvert.com. Free recipe scaling tool for home
+              cooks.
+            </p>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <!-- JavaScript for mobile menu -->
+    <script>
+      document
+        .getElementById("mobileMenuBtn")
+        .addEventListener("click", function () {
+          const mobileMenu = document.getElementById("mobileMenu");
+          mobileMenu.classList.toggle("hidden");
+        });
+    </script>
+  </body>
+</html>
